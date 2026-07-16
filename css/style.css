@@ -242,6 +242,159 @@ p {
   color: var(--color-text);
 }
 
+/* ---------- Prova de mercado (dados reais) ---------- */
+
+.market-total {
+  text-align: center;
+  padding: 32px 24px;
+  margin-bottom: 40px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.market-total__kicker {
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-green-bright);
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.market-total__headline {
+  font-size: clamp(20px, 3.4vw, 26px);
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.market-total__value {
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 800;
+  color: var(--color-blue);
+  margin: 4px 0 12px;
+}
+
+.market-total__label {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  max-width: 46ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.market-total__chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 90px;
+  margin: 32px auto 0;
+  max-width: 480px;
+}
+
+.market-bar {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 28px;
+  background: var(--color-blue);
+  border-radius: 3px 3px 0 0;
+  position: relative;
+  opacity: .85;
+}
+
+.market-bar--partial { opacity: .4; }
+
+.market-bar__month {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: .02em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.cascade-stage {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--color-text-muted);
+  text-align: left;
+  margin: 0 0 14px;
+}
+
+.cascade-stage--indent {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px dashed var(--color-border-strong);
+}
+
+.mini-bar__fill--bad { background: var(--color-bad); }
+
+.data-proof__grid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .data-proof__grid { grid-template-columns: 0.95fr 1.05fr; }
+}
+
+.data-proof__source {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: 16px;
+}
+
+.data-proof__chart {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.mini-bar {
+  margin-bottom: 22px;
+}
+
+.mini-bar:last-child { margin-bottom: 0; }
+
+.mini-bar__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 14px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.mini-bar__label strong {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.mini-bar__track {
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  overflow: hidden;
+}
+
+.mini-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.mini-bar__fill--muted { background: var(--color-text-muted); }
+.mini-bar__fill--good { background: var(--color-good); }
+
 /* ---------- Price card ---------- */
 
 .price-card {
@@ -287,9 +440,12 @@ p {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 24px;
+  text-align: center;
 }
 
-.card p { font-size: 16px; }
+.card h3 { text-align: center; }
+
+.card p { font-size: 16px; text-align: center; text-align-last: center; }
 
 .card__icon { font-size: 28px; margin-bottom: 10px; }
 
@@ -354,7 +510,9 @@ p {
 }
 
 @media (min-width: 720px) {
-  .process li { flex-direction: column; }
+  .process li { flex-direction: column; align-items: center; text-align: center; }
+  .process li h3 { text-align: center; }
+  .process li p { text-align: center; text-align-last: center; }
 }
 
 .process p { font-size: 16px; }
@@ -462,15 +620,44 @@ p {
 /* ---------- Footer ---------- */
 
 .footer {
-  padding: 32px 0 100px;
-  text-align: center;
+  padding: 40px 0 100px;
   color: var(--color-text-muted);
-  font-size: 14px;
+  font-size: 13px;
   border-top: 1px solid var(--color-border);
 }
 
-.footer p { text-align: center; font-size: 14px; }
+.footer__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.footer__signature {
+  height: 130px;
+  width: auto;
+  opacity: .85;
+  flex-shrink: 0;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  text-align: left;
+}
+
+.footer__info p { margin: 0; font-size: 13px; text-align: left; }
 .footer a { color: var(--color-text-muted); }
+.footer a:hover { color: var(--color-text); }
+
+@media (max-width: 520px) {
+  .footer__grid { flex-direction: column; text-align: center; }
+  .footer__info { align-items: center; text-align: center; }
+  .footer__info p { text-align: center; }
+}
 
 /* ---------- Sticky mobile CTA ---------- */
 
